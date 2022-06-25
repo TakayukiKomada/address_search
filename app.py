@@ -1,16 +1,25 @@
-from socket import if_nameindex, if_nametoindex
-import requests
+"""
+郵便番号7桁(0287111)を入力したら
+岩手県八幡平市大更が出力される
 
-postal_code = "0287111"
+python app.py
+郵便番号<ハイフン無し>は? 0287111
+岩手県八幡平市大更
+"""
+from search_address import search_address
 
-response = requests.get(
-    f"https://zipcloud.ibsnet.co.jp/api/search?zipcode={postal_code}"
-)
 
-dic = response.json()
-dic2 = dic['results'][0]
-pref_name = dic2['address1']
-city_name = dic2['address2']
-town_name = dic2['address3']
-city = pref_name+city_name+town_name
-print(city)
+
+def main():
+    # postal_code = input("郵便番号<ハイフン無し>は? ")
+    postal_code = '0287111'
+
+    address = search_address(postal_code)
+
+    print(address)
+ 
+
+
+
+if __name__ == "__main__":
+    main()
