@@ -7,7 +7,9 @@ response = requests.get(
 )
 
 dic = response.json()
-pref_name = dic['results'][0]['address1']
-city_name = dic['results'][0]['address2']
-town_name = dic['results'][0]['address3']
-print(pref_name+city_name+town_name)
+dic2 = dic['results'][0]
+pref_name = dic2['address1']
+city_name = dic2['address2']
+town_name = dic2['address3']
+city = pref_name+city_name+town_name
+print(city)
