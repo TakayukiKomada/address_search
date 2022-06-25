@@ -1,3 +1,4 @@
+from socket import if_nameindex, if_nametoindex
 import requests
 
 postal_code = "0287111"
